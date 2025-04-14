@@ -1,0 +1,26 @@
+<div class="alumno-formulario">
+  <h2>ABM de Alumnos</h2>
+  <form [formGroup]="formulario" (ngSubmit)="guardarAlumno()">
+    <mat-form-field>
+      <mat-label>Nombre</mat-label>
+      <input matInput formControlName="nombre" required />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Apellido</mat-label>
+      <input matInput formControlName="apellido" required />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Curso</mat-label>
+      <input matInput formControlName="curso" required />
+    </mat-form-field>
+
+    <mat-form-field>
+      <mat-label>Fecha de Nacimiento</mat-label>
+      <input matInput type="date" formControlName="fechaNacimiento" required />
+    </mat-form-field>
+
+    <button mat-raised-button color="primary" type="submit">Guardar</button>
+  </form>
+</div>
