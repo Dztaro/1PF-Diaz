@@ -1,11 +1,7 @@
-<mat-toolbar color="primary">
-  <span appTituloSize>Administración de Alumnos</span>
-</mat-toolbar>
-
-
-<nav>
-  <a mat-button routerLink="/alumnos" routerLinkActive="active">Lista</a>
-  <a mat-button routerLink="/alumnos/abm" routerLinkActive="active">ABM</a>
-</nav>
-
-<router-outlet></router-outlet>
+<app-toolbar></app-toolbar>
+<div class="main-layout">
+  <app-sidebar></app-sidebar>
+  <div class="content">
+    <router-outlet></router-outlet>
+  </div>
+</div>

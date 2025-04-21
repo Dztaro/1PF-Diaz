@@ -1,0 +1,37 @@
+<form [formGroup]="alumnoForm" (ngSubmit)="guardarAlumno()">
+
+    <mat-form-field appearance="fill">
+      <mat-label>Nombre</mat-label>
+      <input matInput formControlName="nombre" />
+      <mat-error *ngIf="alumnoForm.get('nombre')?.hasError('required')">
+        El nombre es obligatorio.
+      </mat-error>
+      <mat-error *ngIf="alumnoForm.get('nombre')?.hasError('minlength')">
+        Mínimo 3 caracteres.
+      </mat-error>
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>Apellido</mat-label>
+      <input matInput formControlName="apellido" />
+      <mat-error *ngIf="alumnoForm.get('apellido')?.hasError('required')">
+        El apellido es obligatorio.
+      </mat-error>
+    </mat-form-field>
+  
+    <mat-form-field appearance="fill">
+      <mat-label>Email</mat-label>
+      <input matInput formControlName="email" />
+      <mat-error *ngIf="alumnoForm.get('email')?.hasError('required')">
+        El email es obligatorio.
+      </mat-error>
+      <mat-error *ngIf="alumnoForm.get('email')?.hasError('email')">
+        Email inválido.
+      </mat-error>
+    </mat-form-field>
+  
+    <button mat-raised-button color="primary" [disabled]="alumnoForm.invalid">
+      Guardar
+    </button>
+  </form>
+  

@@ -11,12 +11,23 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
 import { MatTableModule } from '@angular/material/table';
+import { ToolbarComponent } from './layout/toolbar/toolbar.component';
+import { SidebarComponent } from './layout/sidebar/sidebar.component';
+import { AlumnoFormComponent } from './alumnos/alumno-form/alumno-form.component';
+import { NombreCompletoPipe } from './pipes/nombre-completo.pipe';
+import { TituloGrandeDirective } from './directives/titulo-grande.directive';
+import { MatListModule } from '@angular/material/list';
 
 @NgModule({
   declarations: [
     AppComponent,
     AbmComponent,
     ListaComponent,
+    ToolbarComponent,
+    SidebarComponent,
+    AlumnoFormComponent,
+    NombreCompletoPipe,
+    TituloGrandeDirective,
   ],
 
   imports: [
@@ -28,7 +39,8 @@ import { MatTableModule } from '@angular/material/table';
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
-    MatTableModule
+    MatTableModule,
+    MatListModule
   ],
   providers: [],
   bootstrap: [AppComponent]
