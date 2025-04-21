@@ -1,15 +1,18 @@
-import { Component } from '@angular/core';
+import { Component, OnInit } from '@angular/core';
+import { AlumnosService } from '../../servicios/alumnos.service';
 
 @Component({
   selector: 'app-lista',
-  standalone: false,
   templateUrl: './lista.component.html',
-  styleUrls: ['./lista.component.scss']
+  styleUrls: ['./lista.component.scss'],
+  standalone: false,
 })
-export class ListaComponent {
-  alumnos = [
-    { nombre: 'Felix', apellido: 'Cruz', curso: 'Matemáticas', fechaNacimiento: '2000-01-01' },
-    { nombre: 'Valentino', apellido: 'Siles', curso: 'Historia', fechaNacimiento: '2001-02-15' },
-    { nombre: 'Leandro', apellido: 'Paulise', curso: 'Ciencias', fechaNacimiento: '1999-07-10' }
-  ];
+export class ListaComponent implements OnInit {
+  alumnos: any[] = []; 
+
+  constructor(private alumnosService: AlumnosService) {}
+
+  ngOnInit(): void {
+    this.alumnos = this.alumnosService.obtenerAlumnos();
+  }
 }

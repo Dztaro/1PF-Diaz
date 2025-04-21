@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AlumnosService } from '../../servicios/alumnos.service';
 
 @Component({
   selector: 'app-abm',
@@ -10,7 +11,10 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class AbmComponent {
   formulario: FormGroup;
 
-  constructor(private fb: FormBuilder) {
+  constructor(
+    private fb: FormBuilder,
+    private alumnosService: AlumnosService
+  ) {
     this.formulario = this.fb.group({
       nombre: ['', Validators.required],
       apellido: ['', Validators.required],
@@ -21,7 +25,8 @@ export class AbmComponent {
 
   guardarAlumno() {
     if (this.formulario.valid) {
-      console.log('Alumno guardado:', this.formulario.value);
+      const nuevoAlumno = this.formulario.value;
+      this.alumnosService.agregarAlumno(nuevoAlumno); // Guardar el alumno en el servicio
       this.formulario.reset();
     } else {
       this.formulario.markAllAsTouched();

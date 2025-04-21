@@ -17,6 +17,7 @@ import { AlumnoFormComponent } from './alumnos/alumno-form/alumno-form.component
 import { NombreCompletoPipe } from './pipes/nombre-completo.pipe';
 import { TituloGrandeDirective } from './directives/titulo-grande.directive';
 import { MatListModule } from '@angular/material/list';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,8 @@ import { MatListModule } from '@angular/material/list';
     MatFormFieldModule,
     MatInputModule,
     MatTableModule,
-    MatListModule
+    MatListModule,
+    MatIconModule
   ],
   providers: [],
   bootstrap: [AppComponent]
