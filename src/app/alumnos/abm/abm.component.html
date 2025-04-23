@@ -1,26 +1,50 @@
-<div class="alumno-formulario">
-  <h2>ABM de Alumnos</h2>
-  <form [formGroup]="formulario" (ngSubmit)="guardarAlumno()">
-    <mat-form-field>
-      <mat-label>Nombre</mat-label>
-      <input matInput formControlName="nombre" required />
-    </mat-form-field>
+<mat-card class="abm-card">
+  <mat-card-header>
+    <mat-card-title>📝 ABM de Alumnos</mat-card-title>
+  </mat-card-header>
+  <mat-card-content>
+    <form [formGroup]="formulario" (ngSubmit)="guardarAlumno()">
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Nombre</mat-label>
+        <input matInput formControlName="nombre" />
+        <mat-error *ngIf="formulario.get('nombre')?.hasError('required')">
+          El nombre es obligatorio
+        </mat-error>
+        <mat-error *ngIf="formulario.get('nombre')?.hasError('minlength')">
+          Mínimo 3 caracteres
+        </mat-error>
+      </mat-form-field>
 
-    <mat-form-field>
-      <mat-label>Apellido</mat-label>
-      <input matInput formControlName="apellido" required />
-    </mat-form-field>
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Apellido</mat-label>
+        <input matInput formControlName="apellido" />
+        <mat-error *ngIf="formulario.get('apellido')?.hasError('required')">
+          El apellido es obligatorio
+        </mat-error>
+      </mat-form-field>
 
-    <mat-form-field>
-      <mat-label>Curso</mat-label>
-      <input matInput formControlName="curso" required />
-    </mat-form-field>
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Curso</mat-label>
+        <input matInput formControlName="curso" />
+        <mat-error *ngIf="formulario.get('curso')?.hasError('required')">
+          El curso es obligatorio
+        </mat-error>
+      </mat-form-field>
 
-    <mat-form-field>
-      <mat-label>Fecha de Nacimiento</mat-label>
-      <input matInput type="date" formControlName="fechaNacimiento" required />
-    </mat-form-field>
+      <mat-form-field appearance="outline" class="full-width">
+        <mat-label>Fecha de Nacimiento</mat-label>
+        <input matInput type="date" formControlName="fechaNacimiento" />
+        <mat-error *ngIf="formulario.get('fechaNacimiento')?.hasError('required')">
+          La fecha es obligatoria
+        </mat-error>
+      </mat-form-field>
 
-    <button mat-raised-button color="primary" type="submit">Guardar</button>
-  </form>
-</div>
+      <div class="form-button-container">
+        <button mat-raised-button color="primary" type="submit">
+          <mat-icon>save</mat-icon>
+          Guardar Alumno
+        </button>
+      </div>
+    </form>
+  </mat-card-content>
+</mat-card>
